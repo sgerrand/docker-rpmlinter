@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+! test -d $SPECSDIR \
+    && echo "Error: expected '$SPECSDIR' do be a directory" \
+    && exit 1
+
+rpmlint "$SPECSDIR"

@@ -1,0 +1,12 @@
+machine:
+  services:
+    - docker
+dependencies:
+  override:
+    - npm install -g dockerlint
+test:
+  pre:
+    - dockerlint Dockerfile
+    - docker build -t test .
+  override:
+    - docker run -v $PWD/tests:/specs test

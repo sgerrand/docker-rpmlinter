@@ -14,8 +14,11 @@ this mount point can be changed using the `SPECSDIR` environment variable.
 
 ## Environment
 
-There is currently one environment variable which can be changed at run time:
+There is currently two environment variables which can be changed at run time:
 
 * `SPECSDIR`: Defaults to `/specs`. This specifies the mount point for your
   specs directory. If overridden, this mount point must exist for the linter
   script to work.
+* `SPECFILE`: Defaults to an empty string. This specifies the location of a
+  single spec file. The file can exist within the `SPECSDIR` directory or a
+  separate location on the file system.

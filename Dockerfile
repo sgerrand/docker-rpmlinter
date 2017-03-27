@@ -1,6 +1,7 @@
 FROM saltstack/centos-6-minimal
 MAINTAINER Sasha Gerrand <centos-rpms@sgerrand.com>
 ENV SPECSDIR /specs
+ENV SPECFILE=""
 RUN yum clean all \
   && yum update -y \
   && yum install -y rpmlint \

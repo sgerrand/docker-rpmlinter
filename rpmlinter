@@ -1,8 +1,17 @@
 #!/bin/sh
 set -e
 
-! test -d $SPECSDIR \
+! test -d "$SPECSDIR" \
     && echo "Error: expected '$SPECSDIR' do be a directory" \
     && exit 1
 
-rpmlint "$SPECSDIR"
+lint_file_exists() {
+    test -f "$1" && rpmlint "$1"
+}
+
+if ! test -z "$SPECFILE"
+then
+    lint_file_exists "$SPECFILE" || lint_file_exists "$SPECSDIR/$SPECFILE"
+else
+    rpmlint "$SPECSDIR"
+fi
